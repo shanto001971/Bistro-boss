@@ -1,4 +1,5 @@
 import BristoBanner from "../BristoBanner/BristoBanner";
+import ChefRecommends from "../ChefRecommends/ChefRecommends";
 import Fatured from "../FaturedItem/Fatured";
 import PopularManu from "../PopularManu/PopularManu";
 import Banner from "../banner/Banner";
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner/>
             <Category/>
             <PopularManu/>
+            <ChefRecommends/>
             <BristoBanner/>
             <Fatured/>
             <Tastimonials/>
