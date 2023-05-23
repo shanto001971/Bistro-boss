@@ -2,6 +2,7 @@ import Fatured from "../FaturedItem/Fatured";
 import PopularManu from "../PopularManu/PopularManu";
 import Banner from "../banner/Banner";
 import Category from "../cetagory/Category";
+import Tastimonials from "../tastimonials/Tastimonials";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             <Category/>
             <PopularManu/>
             <Fatured/>
+            <Tastimonials/>
         </div>
     );
 };

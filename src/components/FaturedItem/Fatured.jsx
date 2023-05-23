@@ -4,13 +4,13 @@ import './Fatured.css'
 
 const Fatured = () => {
     return (
-        <div className="featured-Item pt-8 my-20">
+        <div className="featured-Item pt-8 my-20 bg-fixed">
             <SectionTitle
                 heading={'fatured item'}
                 subHeading={'check it Out'}
             />
 
-            <div className="md:flex justify-center items-center py-20 pt-12 lg:px-36 gap-10">
+            <div className="md:flex justify-center items-center py-20 pt-12 lg:px-36 gap-10 bg-slate-500 bg-opacity-60">
                 <div className="">
                     <img src={featured} alt="" className="rounded-md w-full"/>
                 </div>
@@ -18,7 +18,7 @@ const Fatured = () => {
                     <p>March 20, 2023</p>
                     <h1>WHERE CAN I GET SOME?</h1>
                     <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</small>
-                    <button className="btn btn-outline mt-8">Order Now</button>
+                    <button className="btn btn-outline border-0 border-b-4  mt-8">Order Now</button>
                 </div>
             </div>
 

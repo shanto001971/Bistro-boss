@@ -16,7 +16,7 @@ const PopularManu = () => {
             })
     }, [])
 
-    console.log(menu)
+    // console.log(menu)
     return (
         <section className="mb-16">
             <SectionTitle
