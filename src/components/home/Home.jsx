@@ -1,3 +1,4 @@
+import BristoBanner from "../BristoBanner/BristoBanner";
 import Fatured from "../FaturedItem/Fatured";
 import PopularManu from "../PopularManu/PopularManu";
 import Banner from "../banner/Banner";
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner/>
             <Category/>
             <PopularManu/>
+            <BristoBanner/>
             <Fatured/>
             <Tastimonials/>
         </div>

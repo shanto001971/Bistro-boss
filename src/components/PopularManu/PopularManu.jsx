@@ -18,7 +18,7 @@ const PopularManu = () => {
 
     // console.log(menu)
     return (
-        <section className="mb-16">
+        <section className="mb-16 text">
             <SectionTitle
                 heading={'form Our Manu'}
                 subHeading={"popular Items"}
@@ -30,6 +30,7 @@ const PopularManu = () => {
                     menu.map(item => <MenuItem key={item._id} item={item} />)
                 }
             </div>
+            <div className="text-center  my-8"><button className="btn btn-outline border-0 border-b-4  ">View Full Menu</button></div>
         </section>
     );
 };
