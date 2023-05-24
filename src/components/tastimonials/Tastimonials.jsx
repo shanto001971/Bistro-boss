@@ -19,7 +19,7 @@ const Tastimonials = () => {
     const [review, setReview] = useState([]);
 
     useEffect(() => {
-        fetch('reviws.json')
+        fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => setReview(data))
     }, []);
@@ -43,7 +43,7 @@ const Tastimonials = () => {
                                 value={reviewItem?.rating}
                                 readOnly
                             />
-                            <FaQuoteLeft className="mx-auto w-20 h-20 my-5"/>
+                            <FaQuoteLeft className="mx-auto w-20 h-20 my-5" />
                             <p className="my-5">{reviewItem.details}</p>
                             <h3 className="text-2xl text-orange-400">{reviewItem?.name}</h3>
                         </div>

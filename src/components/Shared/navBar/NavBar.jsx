@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 
 
 const NavBar = () => {
 
     const navOption = <>
-        <li><a>Submenu 1</a></li>
-        <li><a>Submenu 2</a></li>
+        <Link to="/" className="mr-5"><li>Home</li></Link>
+        <Link to="/menu" className="mr-5"><li>Our Menu</li></Link>
+        <Link to="/order/salad" className="mr-5"><li>Order</li></Link>
+        
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl">
