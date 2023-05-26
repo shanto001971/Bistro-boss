@@ -3,6 +3,10 @@ import Main from "../layout/Main";
 import Home from "../components/home/Home";
 import Menu from "../components/MenuPage/Menu/Menu";
 import Order from "../components/order/Order/Order";
+import Login from "../components/MenuPage/login/Login";
+import SingUp from "../components/MenuPage/singUp/SingUp";
+import Secrets from "../components/secrets/Secrets";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +24,20 @@ export const router = createBrowserRouter([
       {
         path: 'order/:category',
         element: <Order />
+      },
+      {
+        path: 'login',
+        element:<Login/>
+      },
+      {
+        path: 'singup',
+        element:<SingUp/>
+      },
+      {
+        path: '/secrets',
+        element:<PrivetRoute>
+          <Secrets/>
+        </PrivetRoute>
       },
 
     ]
