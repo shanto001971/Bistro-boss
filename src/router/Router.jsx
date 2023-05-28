@@ -7,6 +7,8 @@ import Login from "../components/MenuPage/login/Login";
 import SingUp from "../components/MenuPage/singUp/SingUp";
 import Secrets from "../components/secrets/Secrets";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import Dashboard from "../layout/Dashboard";
+import MyCart from "../components/MenuPage/Dashboard/MyCart/MyCart";
 
 export const router = createBrowserRouter([
   {
@@ -27,19 +29,29 @@ export const router = createBrowserRouter([
       },
       {
         path: 'login',
-        element:<Login/>
+        element: <Login />
       },
       {
         path: 'singup',
-        element:<SingUp/>
+        element: <SingUp />
       },
       {
         path: '/secrets',
-        element:<PrivetRoute>
-          <Secrets/>
+        element: <PrivetRoute>
+          <Secrets />
         </PrivetRoute>
       },
 
+    ],
+  },
+  {
+    path: 'dashboard',
+    element: <Dashboard />,
+    children: [
+      {
+        path:'mycart',
+        element: <MyCart/>
+      }
     ]
   },
 ]);
