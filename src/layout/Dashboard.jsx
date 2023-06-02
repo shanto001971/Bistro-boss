@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome,FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome,FaUtensils, FaBook, FaUsers, FaListUl } from 'react-icons/fa';
 import { Helmet } from "react-helmet-async";
 import { useCart } from "../hooks/useCart";
 import useAdmin from "../hooks/useAdmin";
@@ -16,7 +16,7 @@ const Dashboard = () => {
             </Helmet>
             <div className="drawer drawer-mobile ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content ">
                     <Outlet />
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
@@ -29,13 +29,13 @@ const Dashboard = () => {
                         {
                             isAdmin ? <>
                                  <li><NavLink to='/dashboard/home'><FaHome/>Admin Home</NavLink></li>
-                                <li><NavLink to='/dashboard/reservation'><FaUtensils/> Add Items</NavLink></li>
-                                <li><NavLink to='/dashboard/payment'>Manage Items</NavLink></li>
+                                <li><NavLink to='/dashboard/addItem'><FaUtensils/> Add an Items</NavLink></li>
+                                <li><NavLink to='/dashboard/manageitems'><FaListUl/> Manage Items</NavLink></li>
                                 <li><NavLink to='/dashboard/payment'><FaBook/> Manage Bookings</NavLink></li>
                                 <li><NavLink to='/dashboard/allUsers'><FaUsers />All Users</NavLink></li>
                                
                             </> : <>
-                               
+                                <li><NavLink to='/dashboard/home'><FaHome/>Home</NavLink></li>
                                 <li><NavLink to='/dashboard/payment'><FaWallet /> Payment History</NavLink></li>
                                 <li><NavLink to='/dashboard/reservation'><FaCalendarAlt /> Reservation</NavLink></li>
                                 <li><NavLink to='/dashboard/mycart'>
