@@ -24,7 +24,7 @@ const Tastimonials = () => {
             .then(data => setReview(data))
     }, []);
 
-    console.log(review)
+    // console.log(review)
     return (
         <section className="my-20">
             <SectionTitle

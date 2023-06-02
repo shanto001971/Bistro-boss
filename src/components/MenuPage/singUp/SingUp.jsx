@@ -2,18 +2,55 @@ import { useContext, useState } from "react";
 import { AuthContext } from '../../../provider/AuthProvider';
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import Google from "../../socalLogin/Google";
 
 
 const SingUp = () => {
     const [err, setErr] = useState('')
     const { LogInUser, setUser, updateprofileUser } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => {
+    const navigate = useNavigate()
+
+    console.log(err)
+
+    const submit = data => {
+        console.log(data);
         LogInUser(data?.email, data?.password)
             .then(result => {
                 setUser(result.user)
                 updateprofileUser(data.name, data.photoUrl)
-                    .then(() => { })
+                    .then(() => {
+
+                        const saveUser = { name: data.name, email: data.email };
+                        console.log(saveUser)
+                        fetch(`http://localhost:5000/user`, {
+
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                           
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                                if (data.insertedId) {
+                                    
+                                    Swal.fire(
+                                        'Good job!',
+                                        'SingIn Successfully',
+                                        'success'
+                                    )
+                                }
+                               navigate('/')
+                               
+                            })
+
+                            
+                    })
                     .catch(() => { })
             })
             .catch(err => {
@@ -35,7 +72,7 @@ const SingUp = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <form onSubmit={handleSubmit(submit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -46,7 +83,7 @@ const SingUp = () => {
                                 <label className="label">
                                     <span className="label-text">PhotoUrl</span>
                                 </label>
-                                <input type="text" {...register("photoUrl")} name='name' placeholder="PhotoUrl" className="input input-bordered" />
+                                <input type="text" {...register("photoUrl")}  placeholder="PhotoUrl" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -74,6 +111,7 @@ const SingUp = () => {
                             <div className="form-control mt-6">
                                 <button type="submit" className="btn btn-primary">SingUp</button>
                             </div>
+                            <Google/>
                         </form>
                         <p>{err}</p>
                     </div>

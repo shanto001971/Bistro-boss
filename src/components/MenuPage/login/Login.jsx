@@ -3,6 +3,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import Google from '../../socalLogin/Google';
 
 
 const Login = () => {
@@ -89,11 +90,13 @@ const Login = () => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <button disabled={disabled} type='submit' className="btn btn-primary">Login</button>
+                            <button disabled={false} type='submit' className="btn btn-primary">Login</button>
                         </div>
                     </div>
+                    <Google/>
                 </form>
                 <p>New hare to  <Link to="/singup" className='link'>SingUp</Link></p>
+                
             </div>
         </div>
     );
